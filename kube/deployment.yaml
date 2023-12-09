@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-101
+  labels:
+    app: k8s-101
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: k8s-101
+  template:
+    metadata:
+      labels:
+        app: k8s-101
+    spec:
+      containers:
+      - name: k8s-10
+        image: docker.io/rusucosmin/k8s-101:latest
+        ports:
+        - containerPort: 3000
+        resources:
+          limits:
+            cpu: 2
+          requests:
+            cpu: 200m
+        readinessProbe:
+          httpGet:
+            path: /ping
+            port: 3000
+          initialDelaySeconds: 60
+          periodSeconds: 60
+          timeoutSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /ping
+            port: 3000
+          initialDelaySeconds: 60
+          periodSeconds: 60
+          timeoutSeconds: 5
