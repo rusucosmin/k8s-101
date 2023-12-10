@@ -1,5 +1,7 @@
 # k8s 101
 
+[Presentation Link](https://docs.google.com/presentation/d/1NpjkGONdxEW418nyBplX1Lr4F0pJIAKvFacBqB2Z1_4/edit?usp=sharing)
+
 If you wanna follow along, clone this repo:
 
 ```bash
@@ -60,4 +62,12 @@ $ gcloud container clusters get-credentials this-is-not-my-first-time --region u
 ```bash
 $ cd kube
 $ kubectl apply -f deployment.yaml -f service.yaml -f ingress.yaml
+```
+
+## Step 5: Other image
+
+```bash
+$ cd kube/new-server
+$ docker build --platform=linux/amd64 . -t rusucosmin/k8s-102:latest
+$ docker push rusucosmin/k8s-102:latest
 ```
