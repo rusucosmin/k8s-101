@@ -67,14 +67,14 @@ spec:
             cpu: 200m
         readinessProbe:
           httpGet:
-            path: /ping
+            path: /
             port: 3000
           initialDelaySeconds: 60
           periodSeconds: 60
           timeoutSeconds: 5
         livenessProbe:
           httpGet:
-            path: /ping
+            path: /
             port: 3000
           initialDelaySeconds: 60
           periodSeconds: 60
