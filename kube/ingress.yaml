@@ -8,3 +8,13 @@ spec:
       name: k8s-101
       port:
         number: 80
+  rules:
+  - http:
+      paths:
+      - path: /api/
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: k8s-102
+            port:
+              number: 80
