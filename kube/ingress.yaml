@@ -12,7 +12,7 @@ spec:
   - http:
       paths:
       - path: /api/
-        pathType: ImplementationSpecific
+        pathType: Prefix
         backend:
           service:
             name: k8s-102
